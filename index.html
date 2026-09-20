@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FechoDigital — Página + pagamentos online por 99€</title>
+  <meta name="description" content="Pack Digital PME: página do teu negócio + pagamentos online por 99€. Entrega em até 7 dias úteis. Publicação pronta para partilhares com os teus clientes e nas tuas redes." />
+  <meta name="theme-color" content="#12241c" />
+  <link rel="canonical" href="https://fechdigital.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:url" content="https://fechdigital.com/" />
+  <meta property="og:site_name" content="FechoDigital" />
+  <meta property="og:title" content="FechoDigital — Página + pagamentos online por 99€" />
+  <meta property="og:description" content="Pack Digital PME a 99€: página + pagamentos online. Entrega em até 7 dias úteis." />
+  <meta property="og:image" content="https://fechdigital.com/og-fechdigital.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="FechoDigital — Pack Digital PME 99€" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FechoDigital — Página + pagamentos online por 99€" />
+  <meta name="twitter:description" content="Pack Digital PME a 99€. Entrega em até 7 dias úteis." />
+  <meta name="twitter:image" content="https://fechdigital.com/og-fechdigital.png" />
+  <style>
+    :root {
+      --ink: #12241c;
+      --paper: #f3eee4;
+      --panel: #fffdf8;
+      --line: #d7d0c2;
+      --accent: #c45c26;
+      --moss: #1f6b4a;
+      --muted: #5c685f;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    a { color: var(--moss); }
+    a:hover { color: var(--accent); }
+    .wrap { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--line);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand span { color: var(--accent); }
+    nav { display: flex; flex-wrap: wrap; gap: 0.65rem 1rem; }
+    nav a {
+      text-decoration: none;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    nav a:hover { color: var(--accent); }
+    .hero { padding: 3.25rem 0 2.25rem; }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      color: var(--moss);
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+    }
+    h1 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+      font-size: clamp(2rem, 5.5vw, 2.85rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.85rem;
+    }
+    .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0 0 1.25rem;
+      max-width: 38rem;
+    }
+    .price {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      margin: 0 0 1.35rem;
+      font-size: 0.95rem;
+    }
+    .price b { font-size: 1.35rem; }
+    .bullets {
+      list-style: none;
+      margin: 0 0 1.5rem;
+      padding: 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+    .bullets li {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+    }
+    .bullets strong {
+      display: block;
+      margin-bottom: 0.15rem;
+      font-size: 1rem;
+    }
+    .bullets span { color: var(--muted); font-size: 0.95rem; }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+    }
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8rem 1.15rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .cta:hover { color: #fff; filter: brightness(1.05); }
+    .cta-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+      text-decoration: none;
+      padding: 0.72rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .cta-secondary:hover { color: var(--accent); border-color: var(--accent); }
+    section {
+      padding: 2rem 0;
+      border-top: 1px solid var(--line);
+    }
+    h2 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.85rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.15rem 0 0.45rem;
+    }
+    .plain { margin: 0; color: var(--muted); }
+    .plain + .plain { margin-top: 0.7rem; }
+    ul.check {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.35rem;
+    }
+    ol {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.45rem;
+    }
+    .note {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .demo-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 1rem;
+    }
+    .demo-card {
+      position: relative;
+      display: grid;
+      gap: 0.35rem;
+      text-decoration: none;
+      color: inherit;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      padding-bottom: 0.85rem;
+    }
+    .demo-card img { width: 100%; height: auto; display: block; aspect-ratio: 1; object-fit: cover; }
+    .demo-card strong { padding: 0 0.85rem; font-size: 1.05rem; }
+    .demo-card > span:last-child { padding: 0 0.85rem; color: var(--moss); font-size: 0.9rem; }
+    .demo-badge {
+      position: absolute; top: 0.65rem; left: 0.65rem;
+      background: var(--ink); color: var(--paper);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+      padding: 0.35rem 0.55rem; border-radius: 999px;
+    }
+    .demo-card:hover { border-color: var(--accent); }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.35rem 0 2.25rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.75rem;
+      align-items: center;
+    }
+    .contact-links .sep { color: var(--line); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">Fecho<span>Digital</span></a>
+      <nav>
+        <a href="#inclui">O que inclui</a>
+        <a href="#demos">Demos</a>
+        <a href="#quem-somos">Quem somos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <section class="hero" style="border-top: 0; padding-top: 3.25rem;">
+      <p class="eyebrow">Pack Digital PME</p>
+      <h1>Página do teu negócio + pagamentos online</h1>
+      <p class="lead">Uma oferta simples: a tua página no ar, com forma de receber pagamentos — em até <strong>7 dias úteis</strong> após briefing e confirmação de pagamento. Sem projecto de meses.</p>
+      <p class="price"><b>99€</b><span>preço final</span></p>
+      <div class="hero-demo" style="margin:1.35rem 0 0;display:grid;gap:0.75rem;justify-items:start;max-width:420px">
+        <a href="/demo/clinica/" style="display:block;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;width:100%">
+          <img src="/assets/demo-flagship-thumb.png" width="1080" height="1080" alt="Clínica Claridade — exemplo FechoDigital" style="width:100%;height:auto;display:block;aspect-ratio:1;object-fit:cover" />
+        </a>
+        <a class="cta" href="/demo/clinica/">Ver exemplo</a>
+      </div>
+
+      <ul class="bullets">
+        <li>
+          <strong>Página</strong>
+          <span>Proposta, oferta e contacto — fácil de ler no telemóvel.</span>
+        </li>
+        <li>
+          <strong>Pagamentos</strong>
+          <span>Pagamentos online para quem te quer comprar ou reservar.</span>
+        </li>
+        <li>
+          <strong>Publicação pronta</strong>
+          <span>Fica no ar, pronta para partilhares com os teus clientes e nas tuas redes.</span>
+        </li>
+      </ul>
+      <div class="cta-row">
+        <a class="cta" href="https://wa.me/351936789409?text=Ol%C3%A1%2C%20quero%20a%20minha%20p%C3%A1gina%20%28Pack%20Digital%20PME%2099%E2%82%AC%29." target="_blank" rel="noopener noreferrer">Quero a minha página</a>
+        <a class="cta-secondary" href="mailto:contacto@fechdigital.com">contacto@fechdigital.com</a>
+      </div>
+    </section>
+
+    <section id="inclui">
+      <h2>O que inclui / não inclui</h2>
+      <h3>O que inclui</h3>
+      <ul class="check">
+        <li>Página do teu negócio pronta a partilhar</li>
+        <li>Pagamentos online configurados</li>
+        <li>Texto e publicação</li>
+      </ul>
+      <p class="plain" style="margin-top: 0.85rem;"><strong>Preço:</strong> 99€ (preço final).</p>
+
+      <h3>O que não inclui</h3>
+      <ul class="check">
+        <li>Domínio</li>
+        <li>Alojamento pago</li>
+        <li>Manutenção depois da entrega</li>
+        <li>Alterações fora de 1 revisão</li>
+        <li>Taxas do Stripe / MB Way</li>
+        <li>Loja online com catálogo grande, app para telemóvel ou plataforma à medida (discutem-se à parte)</li>
+      </ul>
+
+      <h3>Prazo</h3>
+      <p class="plain">Entrega em até <strong>7 dias úteis</strong> após recebermos o briefing e confirmares o pagamento.</p>
+
+      <h3>Revisões</h3>
+      <p class="plain"><strong>1</strong> ronda de ajustes menores incluída (até 7 dias após entrega). Pedidos extra = orçamento à parte.</p>
+
+      <p class="note"><strong>Faturação / waitlist:</strong> Faturação emitida após abertura de atividade; até lá só reserva/interesse sem cobrança.</p>
+    </section>
+
+    <section id="demos">
+      <h2>Exemplo</h2>
+      <p class="plain">Demonstração FechoDigital — Clínica Claridade (exemplo, não é um negócio real).</p>
+      <div class="demo-grid" style="grid-template-columns:minmax(0,320px)">
+        <a class="demo-card" href="/demo/clinica/">
+          <img src="/assets/demo-flagship-thumb.png" width="1080" height="1080" alt="Clínica Claridade" />
+          <span class="demo-badge">Demonstração</span>
+          <strong>Clínica Claridade</strong>
+          <span>Ver exemplo</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Como funciona</h2>
+      <ol>
+        <li>Clicas em <a href="https://wa.me/351936789409?text=Ol%C3%A1%2C%20quero%20a%20minha%20p%C3%A1gina%20%28Pack%20Digital%20PME%2099%E2%82%AC%29." target="_blank" rel="noopener noreferrer">Quero a minha página</a> (WhatsApp) ou escreves para <a href="mailto:contacto@fechdigital.com">contacto@fechdigital.com</a> e explicas o teu negócio.</li>
+        <li>Alinhamos o conteúdo e o que entra nos 99€.</li>
+        <li>Entregamos a página publicada e o link para partilhares.</li>
+      </ol>
+    </section>
+
+    <section id="quem-somos">
+      <h2>Quem somos</h2>
+      <p class="plain">A FechoDigital é o projecto do <strong>Pedro</strong>, em Lisboa: páginas simples + pagamentos online para PME e independentes em Portugal, a preço fixo.</p>
+      <p class="plain">Não somos uma multinacional nem uma agência com dezenas de pessoas. Somos acompanhamento directo — falas connosco, alinhamos, entregamos.</p>
+      <p class="plain">A actividade formal (recibos / faturação) está em preparação; quando quiseres avançar com o Pack, explicamos como fica o pagamento e o recibo naquele momento. Até a atividade estar aberta: só reserva/interesse — <strong>sem cobrança</strong>.</p>
+      <p class="plain" style="margin-top: 0.85rem;">Contacto: <a href="mailto:contacto@fechdigital.com">contacto@fechdigital.com</a> · <a href="https://wa.me/351936789409?text=Ol%C3%A1%2C%20quero%20a%20minha%20p%C3%A1gina%20%28Pack%20Digital%20PME%2099%E2%82%AC%29." target="_blank" rel="noopener noreferrer">WhatsApp +351 936 789 409</a> · Instagram <a href="https://www.instagram.com/fechodigital/" target="_blank" rel="noopener noreferrer">@fechodigital</a></p>
+    </section>
+
+    <section id="contacto">
+      <h2>Queres avançar?</h2>
+      <p class="plain">WhatsApp ou email. Sem formulários. Até a atividade estar aberta: só reserva/interesse — sem cobrança.</p>
+      <div class="cta-row" style="margin-top: 1rem;">
+        <a class="cta" href="https://wa.me/351936789409?text=Ol%C3%A1%2C%20quero%20a%20minha%20p%C3%A1gina%20%28Pack%20Digital%20PME%2099%E2%82%AC%29." target="_blank" rel="noopener noreferrer">Quero a minha página</a>
+        <a class="cta-secondary" href="mailto:contacto@fechdigital.com">contacto@fechdigital.com</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>FechoDigital · Pack Digital PME · 99€ · fechdigital.com</div>
+      <div class="contact-links">
+        <a href="mailto:contacto@fechdigital.com">contacto@fechdigital.com</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://wa.me/351936789409?text=Ol%C3%A1%2C%20quero%20a%20minha%20p%C3%A1gina%20%28Pack%20Digital%20PME%2099%E2%82%AC%29." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://www.instagram.com/fechodigital/" target="_blank" rel="noopener noreferrer">Instagram @fechodigital</a>
+      </div>
+    </footer>
+  </div>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

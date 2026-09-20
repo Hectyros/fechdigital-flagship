@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fechdigital.com/sitemap.xml

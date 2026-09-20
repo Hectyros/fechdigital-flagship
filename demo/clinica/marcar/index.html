@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marcar consulta — Clínica Claridade</title>
+  <meta name="description" content="Reserve horário e pague online na Clínica Claridade." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="../shared.css" />
+</head>
+<body>
+  <div class="demo-badge">Demonstração FechoDigital — exemplo, não é um negócio real.</div>
+
+  <header class="site-header">
+    <div class="wrap inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">CC</span>
+        <span class="brand-text">
+          <span class="brand-name">Clínica Claridade</span>
+          <span class="brand-tag">Campo de Ourique · Lisboa</span>
+        </span>
+      </a>
+      <a class="btn btn-ghost" href="../index.html" style="min-height:40px;padding:0.4rem 0.9rem">← Voltar</a>
+    </div>
+  </header>
+
+  <main class="wizard-page">
+    <div class="wrap wizard-shell">
+      <div class="wizard-progress" id="progress" aria-hidden="true">
+        <div class="bar" data-i="0"></div>
+        <div class="bar" data-i="1"></div>
+        <div class="bar" data-i="2"></div>
+        <div class="bar" data-i="3"></div>
+        <div class="bar" data-i="4"></div>
+      </div>
+
+      <!-- Step 0: Serviço -->
+      <section class="wizard-panel" id="step-service" data-step="0">
+        <p class="step-label">Passo 1 de 5</p>
+        <h1>Escolha o tipo de consulta</h1>
+        <p class="muted">Preços com IVA incluído. Pode alterar a qualquer momento antes do pagamento.</p>
+        <div class="option-list" id="service-options" role="listbox" aria-label="Tipos de consulta"></div>
+        <div class="wizard-nav">
+          <button type="button" class="btn btn-primary" id="btn-to-doctor" disabled>Continuar</button>
+        </div>
+      </section>
+
+      <!-- Step 1: Profissional -->
+      <section class="wizard-panel" id="step-doctor" data-step="1" hidden>
+        <p class="step-label">Passo 2 de 5</p>
+        <h1>Quem atende</h1>
+        <p class="muted">Nesta clínica, as consultas são asseguradas pela médica abaixo.</p>
+        <div class="doctor-mini">
+          <img src="../assets/medico.jpg" alt="" width="112" height="112" />
+          <div>
+            <strong id="doc-name-live">Dra. Ana Luísa Mendes</strong>
+            <div class="muted small">Médica de família · MGF · OM 58921</div>
+            <div class="muted small">12 anos de prática clínica</div>
+          </div>
+        </div>
+        <div class="summary-box" id="svc-summary-mini"></div>
+        <div class="wizard-nav">
+          <button type="button" class="btn btn-secondary" data-back>Voltar</button>
+          <button type="button" class="btn btn-primary" id="btn-to-slots">Escolher horário</button>
+        </div>
+      </section>
+
+      <!-- Step 2: Horário -->
+      <section class="wizard-panel" id="step-slots" data-step="2" hidden>
+        <p class="step-label">Passo 3 de 5</p>
+        <h1>Escolha o horário</h1>
+        <p class="muted">Slots disponíveis nos próximos dias úteis (e sábados de manhã).</p>
+        <div class="day-tabs" id="day-tabs" role="tablist" aria-label="Dias"></div>
+        <div class="slot-grid" id="slot-grid" role="listbox" aria-label="Horários"></div>
+        <div class="wizard-nav">
+          <button type="button" class="btn btn-secondary" data-back>Voltar</button>
+          <button type="button" class="btn btn-primary" id="btn-to-pay" disabled>Continuar</button>
+        </div>
+      </section>
+
+      <!-- Step 3: Dados + Pagamento -->
+      <section class="wizard-panel" id="step-pay" data-step="3" hidden>
+        <p class="step-label">Passo 4 de 5</p>
+        <h1>Dados e pagamento</h1>
+        <p class="muted">Pagamento simulado — nenhum valor real é cobrado.</p>
+
+        <div class="summary-box" id="booking-summary"></div>
+
+        <form id="pay-form" autocomplete="on" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="nome">Nome completo</label>
+              <input id="nome" name="nome" type="text" required placeholder="O seu nome" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="telemovel">Telemóvel</label>
+              <input id="telemovel" name="telemovel" type="tel" required placeholder="9XX XXX XXX" autocomplete="tel" inputmode="tel" />
+            </div>
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" required placeholder="nome@email.pt" autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="nif">NIF <span class="muted">(opcional, para fatura)</span></label>
+              <input id="nif" name="nif" type="text" inputmode="numeric" placeholder="123 456 789" maxlength="11" />
+            </div>
+          </div>
+
+          <p class="eyebrow" style="margin-top:0.5rem">Método de pagamento</p>
+          <div class="pay-methods" role="radiogroup" aria-label="Método de pagamento">
+            <button type="button" class="pay-method selected" data-method="mbway" aria-pressed="true">
+              <span class="pm-icon">MB</span>
+              <span>
+                <strong>MB Way</strong>
+                <span class="muted small" style="display:block">Confirmação no telemóvel</span>
+              </span>
+            </button>
+            <button type="button" class="pay-method" data-method="card" aria-pressed="false">
+              <span class="pm-icon">💳</span>
+              <span>
+                <strong>Cartão</strong>
+                <span class="muted small" style="display:block">Visa / Mastercard (simulado)</span>
+              </span>
+            </button>
+          </div>
+
+          <div class="field" id="mbway-field">
+            <label for="mbway-phone">Número MB Way</label>
+            <input id="mbway-phone" type="tel" placeholder="9XX XXX XXX" inputmode="tel" />
+          </div>
+          <div id="card-fields" hidden>
+            <div class="form-grid">
+              <div class="field">
+                <label for="card-num">Número do cartão</label>
+                <input id="card-num" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19" />
+              </div>
+              <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
+                <div>
+                  <label for="card-exp">Validade</label>
+                  <input id="card-exp" type="text" placeholder="MM/AA" maxlength="5" />
+                </div>
+                <div>
+                  <label for="card-cvc">CVC</label>
+                  <input id="card-cvc" type="text" inputmode="numeric" placeholder="123" maxlength="4" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-secondary" data-back>Voltar</button>
+            <button type="submit" class="btn btn-primary" id="btn-pay">Pagar e confirmar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Step 4: Sucesso -->
+      <section class="wizard-panel" id="step-success" data-step="4" hidden>
+        <div class="success-panel">
+          <div class="success-icon" aria-hidden="true">✓</div>
+          <p class="step-label" style="color:var(--success)">Passo 5 de 5</p>
+          <h1>Marcação confirmada (simulação)</h1>
+          <p class="muted" style="max-width:28rem;margin-inline:auto">
+            Pagamento recebido (simulado). Em produção, receberia SMS e e-mail com os detalhes.
+          </p>
+          <div class="ref-code" id="ref-code">CC-000000</div>
+          <div class="summary-box" id="success-summary" style="text-align:left;margin-top:1.5rem"></div>
+          <div class="wizard-nav" style="justify-content:center">
+            <a class="btn btn-secondary" href="../index.html">Voltar à clínica</a>
+            <button type="button" class="btn btn-primary" id="btn-new">Nova marcação</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="margin-top:2rem">
+    <div class="wrap">
+      <p class="footer-note" style="margin:0">
+        Demonstração FechoDigital — nenhum pagamento real é processado.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script>
+    (function () {
+      var C = window.Claridade;
+      if (!C) return;
+
+      var state = {
+        step: 0,
+        service: null,
+        day: null,
+        slot: null,
+        method: 'mbway',
+        ref: null,
+      };
+
+      var panels = C.qsa('.wizard-panel');
+      var progressBars = C.qsa('#progress .bar');
+
+      function showStep(n) {
+        state.step = n;
+        panels.forEach(function (p) {
+          var s = Number(p.getAttribute('data-step'));
+          p.hidden = s !== n;
+        });
+        progressBars.forEach(function (b) {
+          var i = Number(b.getAttribute('data-i'));
+          b.classList.toggle('on', i === n);
+          b.classList.toggle('done', i < n);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function renderServices() {
+        var box = C.qs('#service-options');
+        box.innerHTML = '';
+        C.SERVICES.forEach(function (s) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'option';
+          btn.setAttribute('role', 'option');
+          btn.dataset.id = s.id;
+          btn.innerHTML =
+            '<div class="opt-body"><strong>' + s.name + '</strong><span>' + s.desc + '</span></div>' +
+            '<div class="opt-price">' + C.formatEuro(s.price) + '</div>';
+          btn.addEventListener('click', function () {
+            state.service = s;
+            C.qsa('.option', box).forEach(function (o) { o.classList.remove('selected'); });
+            btn.classList.add('selected');
+            C.qs('#btn-to-doctor').disabled = false;
+          });
+          box.appendChild(btn);
+        });
+
+        // Prefill from query
+        var params = new URLSearchParams(location.search);
+        var pre = params.get('servico');
+        if (pre) {
+          var match = C.SERVICES.find(function (s) { return s.id === pre; });
+          if (match) {
+            state.service = match;
+            var el = box.querySelector('[data-id="' + match.id + '"]');
+            if (el) el.classList.add('selected');
+            C.qs('#btn-to-doctor').disabled = false;
+          }
+        }
+      }
+
+      function renderDoctorSummary() {
+        var s = state.service;
+        C.qs('#svc-summary-mini').innerHTML =
+          '<dl><dt>Consulta</dt><dd>' + s.name + '</dd>' +
+          '<dt>Duração</dt><dd>' + s.duration + '</dd>' +
+          '<dt>Valor</dt><dd>' + C.formatEuro(s.price) + '</dd></dl>';
+      }
+
+      function renderDays() {
+        var days = C.getNextDays(6);
+        var tabs = C.qs('#day-tabs');
+        tabs.innerHTML = '';
+        days.forEach(function (d, idx) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'day-tab' + (idx === 0 ? ' selected' : '');
+          b.setAttribute('role', 'tab');
+          b.innerHTML = d.label + '<small>' + d.day + '/' + d.month + '</small>';
+          b.addEventListener('click', function () {
+            state.day = d;
+            state.slot = null;
+            C.qsa('.day-tab', tabs).forEach(function (t) { t.classList.remove('selected'); });
+            b.classList.add('selected');
+            C.qs('#btn-to-pay').disabled = true;
+            renderSlots(d);
+          });
+          tabs.appendChild(b);
+        });
+        state.day = days[0];
+        renderSlots(days[0]);
+      }
+
+      function renderSlots(day) {
+        var grid = C.qs('#slot-grid');
+        grid.innerHTML = '';
+        C.slotsForDay(day).forEach(function (sl) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'slot';
+          b.textContent = sl.time;
+          b.disabled = !sl.available;
+          if (sl.available) {
+            b.addEventListener('click', function () {
+              state.slot = sl.time;
+              C.qsa('.slot', grid).forEach(function (x) { x.classList.remove('selected'); });
+              b.classList.add('selected');
+              C.qs('#btn-to-pay').disabled = false;
+            });
+          }
+          grid.appendChild(b);
+        });
+      }
+
+      function renderPaySummary() {
+        var s = state.service;
+        var d = state.day;
+        C.qs('#booking-summary').innerHTML =
+          '<dl>' +
+          '<dt>Consulta</dt><dd>' + s.name + '</dd>' +
+          '<dt>Médica</dt><dd>' + C.DOCTOR.name + '</dd>' +
+          '<dt>Data</dt><dd>' + d.day + '/' + d.month + ' · ' + d.label + '</dd>' +
+          '<dt>Hora</dt><dd>' + state.slot + '</dd>' +
+          '<dt>Total</dt><dd>' + C.formatEuro(s.price) + '</dd>' +
+          '</dl>';
+      }
+
+      function setMethod(m) {
+        state.method = m;
+        C.qsa('.pay-method').forEach(function (btn) {
+          var on = btn.dataset.method === m;
+          btn.classList.toggle('selected', on);
+          btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        C.qs('#mbway-field').hidden = m !== 'mbway';
+        C.qs('#card-fields').hidden = m !== 'card';
+      }
+
+      // Nav
+      C.qs('#btn-to-doctor').addEventListener('click', function () {
+        if (!state.service) return;
+        renderDoctorSummary();
+        showStep(1);
+      });
+      C.qs('#btn-to-slots').addEventListener('click', function () {
+        renderDays();
+        showStep(2);
+      });
+      C.qs('#btn-to-pay').addEventListener('click', function () {
+        if (!state.slot) return;
+        renderPaySummary();
+        showStep(3);
+      });
+
+      C.qsa('[data-back]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          showStep(Math.max(0, state.step - 1));
+        });
+      });
+
+      C.qsa('.pay-method').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setMethod(btn.dataset.method);
+        });
+      });
+
+      C.qs('#pay-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nome = C.qs('#nome').value.trim();
+        var tel = C.qs('#telemovel').value.trim();
+        var email = C.qs('#email').value.trim();
+        if (!nome || !tel || !email) {
+          alert('Preencha nome, telemóvel e e-mail para continuar.');
+          return;
+        }
+        if (state.method === 'mbway') {
+          var mb = C.qs('#mbway-phone').value.trim();
+          if (!mb) {
+            alert('Indique o número MB Way (simulação).');
+            return;
+          }
+        }
+        if (state.method === 'card') {
+          var cn = C.qs('#card-num').value.trim();
+          if (cn.replace(/\s/g, '').length < 12) {
+            alert('Indique um número de cartão (simulação).');
+            return;
+          }
+        }
+
+        var payBtn = C.qs('#btn-pay');
+        payBtn.disabled = true;
+        payBtn.textContent = 'A processar…';
+
+        setTimeout(function () {
+          state.ref = C.genRef();
+          C.qs('#ref-code').textContent = state.ref;
+          var s = state.service;
+          var d = state.day;
+          var methodLabel = state.method === 'mbway' ? 'MB Way' : 'Cartão';
+          C.qs('#success-summary').innerHTML =
+            '<dl>' +
+            '<dt>Referência</dt><dd>' + state.ref + '</dd>' +
+            '<dt>Consulta</dt><dd>' + s.name + '</dd>' +
+            '<dt>Médica</dt><dd>' + C.DOCTOR.name + '</dd>' +
+            '<dt>Quando</dt><dd>' + d.day + '/' + d.month + ' às ' + state.slot + '</dd>' +
+            '<dt>Pagamento</dt><dd>' + methodLabel + ' · ' + C.formatEuro(s.price) + '</dd>' +
+            '<dt>Utente</dt><dd>' + nome + '</dd>' +
+            '</dl>' +
+            '<p class="muted small" style="margin:0.85rem 0 0">Pagamento recebido (simulação). Marcação confirmada.</p>';
+          payBtn.disabled = false;
+          payBtn.textContent = 'Pagar e confirmar';
+          showStep(4);
+        }, 900);
+      });
+
+      C.qs('#btn-new').addEventListener('click', function () {
+        state = { step: 0, service: null, day: null, slot: null, method: 'mbway', ref: null };
+        C.qs('#pay-form').reset();
+        setMethod('mbway');
+        renderServices();
+        C.qs('#btn-to-doctor').disabled = true;
+        showStep(0);
+      });
+
+      renderServices();
+      showStep(0);
+    })();
+  </script>
+</body>
+</html>
